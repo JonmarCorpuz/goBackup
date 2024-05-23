@@ -1,60 +1,55 @@
 # CiscoBackup.sh
 
-Simple overview of use/purpose.
+Vue d'ensemble simple de l'utilisation/objectif.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+Un paragraphe approfondi sur votre projet et une vue d'ensemble de son utilisation.
 
-## Getting Started
+## Pour commencer
 
-### Dependencies
+### Dépendances
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* Décrivez les prérequis, bibliothèques, version du système d'exploitation, etc., nécessaires avant d'installer le programme.
 * ex. Windows 10
 
-### Installing
+### Installation
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Comment/où télécharger votre programme
+* Toutes les modifications nécessaires à apporter aux fichiers/dossiers
 
-### Executing program
+### Exécution du programme
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* Comment exécuter le programme
+* Étapes à suivre
 
-## Help
+## Aide
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Conseils pour les problèmes ou les questions courants.
+****
 
-## Authors
+## Auteurs
 
-Contributors names and contact info
+Noms des contributeurs et coordonnées
 
 ex. Dominique Pizzie  
 ex. [@DomPizzie](https://twitter.com/dompizzie)
 
-## Version History
+## Historique des versions
 
 * 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+    * Divers correctifs de bogues et optimisations
+    * Voir [changement de commit]() ou Voir [historique des versions]()
 * 0.1
-    * Initial Release
+    * Première publication
 
-## License
+## Licence
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+Ce projet est sous licence [NOM ICI] - voir le fichier LICENSE.md pour plus de détails
 
-## Acknowledgments
+## Remerciements
 
-Inspiration, code snippets, etc.
+Inspiration, extraits de code, etc.
 * [awesome-readme](https://github.com/matiassingers/awesome-readme)
 * [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 * [dbader](https://github.com/dbader/readme-template)
