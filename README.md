@@ -1,10 +1,10 @@
 # CiscoBackup.sh
 
-Ce script sert à extraire une copie du fichier de configuration d'un appareil Cisco
+Ce script sert à extraire une copie du fichier de configuration d'un switch ou routeur Cisco.
 
 ## Description
 
-Ce script va tout d'abord se connecter à l'appareil Cisco en se basant sur un fichier texte fourni par l'utilisateur. Ce fichier text va contenir l'adresse IP de l'appareil Cisco, ainsi que le username et son mot de passe pour l'utilisateur que ce script va se connecter avec par SSH. 
+Ce script va tout d'abord se connecter à l'appareil Cisco en se basant sur un fichier texte fourni par l'utilisateur. Ce fichier texte contiendra l'adresse IP de l'appareil Cisco, ainsi que le username et son mot de passe que ce script va utiliser pour se connecter à l'appareil par SSH. 
 
 ## Pour commencer
 
