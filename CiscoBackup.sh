@@ -77,7 +77,7 @@ EOF
     fi
     
     # Éxécuter le script Expect qui va aller chercher le fichier de configuration de l'appareil Cisco
-    expect ./projet_final_pt2.sh "$ip_address" "$username" "$password" 
+    expect ./ExpectScript.sh "$ip_address" "$username" "$password" 
     
     # Renommer la copie
     copie="${ip_address}_${temps_exact}.bak"
