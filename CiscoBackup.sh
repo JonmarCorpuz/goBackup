@@ -4,7 +4,7 @@
 # Auteur: Jonmar Corpuz
 # ----------------------------------------------------------------------------------------
 # Objectif(s):
-#   * Extraire une copie du fichier de configuration d'un appareil vers une machine client
+#   * Extraire une copie du fichier de configuration d'un appareil vers un client
 # ========================================================================================
 
 # ================ ÉTAPE 1: DÉCLARER LES OPTIONS ET LES VARIABLES ========================
