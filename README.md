@@ -1,17 +1,17 @@
 # CiscoBackup.sh
 
-Vue d'ensemble simple de l'utilisation/objectif.
+Ce script sert à extraire une copie du fichier de configuration d'un appareil Cisco
 
 ## Description
 
-Un paragraphe approfondi sur votre projet et une vue d'ensemble de son utilisation.
+Ce script va tout d'abord se connecter à l'appareil Cisco en se basant sur un fichier texte fourni par l'utilisateur. Ce fichier text va contenir l'adresse IP de l'appareil Cisco, ainsi que le username et son mot de passe pour l'utilisateur que ce script va se connecter avec par SSH. 
 
 ## Pour commencer
 
-### Dépendances
+### Prérequis
 
-* Un client Ubuntu avec SSHPass et Expect d'installés
-* Un ou plusieurs appareil Cisco qui possède un utilisateur avec un privilège de 15 et qui a SSH et SCP de configuré
+* Un client Ubuntu avec SSHPass et Expect d'installés.
+* Un ou plusieurs appareil Cisco qui possède un utilisateur avec un privilège de 15 et qui a SSH et SCP de configuré.
 
 ### Installation
 
