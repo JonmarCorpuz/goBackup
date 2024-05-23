@@ -10,8 +10,8 @@ Un paragraphe approfondi sur votre projet et une vue d'ensemble de son utilisati
 
 ### Dépendances
 
-* Décrivez les prérequis, bibliothèques, version du système d'exploitation, etc., nécessaires avant d'installer le programme.
-* ex. Windows 10
+* Un client Ubuntu avec SSHPass et Expect d'installés
+* Un ou plusieurs appareil Cisco qui possède un utilisateur avec un privilège de 15 et qui a SSH et SCP de configuré
 
 ### Installation
 
@@ -28,12 +28,9 @@ Un paragraphe approfondi sur votre projet et une vue d'ensemble de son utilisati
 Conseils pour les problèmes ou les questions courants.
 ****
 
-## Auteurs
+## Auteur
 
-Noms des contributeurs et coordonnées
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+* [Jonmar Corpuz](https://www.linkedin.com/in/jonmarcorpuz/)
 
 ## Historique des versions
 
