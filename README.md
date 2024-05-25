@@ -2,7 +2,7 @@
 
 ## Auteur
 
-* ![Jonmar Corpuz](https://www.linkedin.com/in/jonmarcorpuz/)
+* [Jonmar Corpuz](https://www.linkedin.com/in/jonmarcorpuz/)
 
 ## Description
 
