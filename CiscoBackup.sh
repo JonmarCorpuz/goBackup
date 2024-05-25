@@ -4,7 +4,12 @@
 # Auteur: Jonmar Corpuz
 # ----------------------------------------------------------------------------------------
 # Objectif(s):
-#   * Extraire une copie du fichier de configuration d'un appareil vers un client
+#   * Extraire une copie du fichier de configuration d'un appareil vers une machine client
+#
+# ----------------------------------------------------------------------------------------
+# Version: 1 
+# Dernièrement modifié le: 24 mai 2024
+#
 # ========================================================================================
 
 # ================ ÉTAPE 1: DÉCLARER LES OPTIONS ET LES VARIABLES ========================
@@ -14,42 +19,45 @@ while getopts ":f:" opt; do
     case $opt in
         f) file="$OPTARG"
         ;;
-        \?) echo "Usage: ./projet_final_pt1.sh -f <fichier_authentification>" && exit 1
+        \?) echo -e "${ROUGE}Usage: ./projet_final_pt1.sh -f <fichier_texte>${BLANC}" && exit 1
         ;;
-        :) echo "Option -$OPTARG requires an argument." && exit 1
+        :) echo -e "${ROUGE}ERREUR: L'option -$OPTARG nécéssite un argument.${BLANC}" && exit 1
         ;;
     esac
 done
 
 # Déclarer les variables que ce script va utiliser
-ipv4_address="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-temps_exact=$(date '+%Y-%m-%d_%H:%M:%S')
-copie_template="${CurrentDate}_$1.tar.gz"
-fichier_type=$(file -b --mime-type "$file")
+ADRESSE_IPV4="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+TEMPS_EXACT=$(date '+%Y-%m-%d_%H:%M:%S')
+BLANC="\033[0m"
+ROUGE="\033[0;31m"
+JAUNE="\033[1;33m"
+VERT="\033[0;32m"
 
 # ======================= ÉTAPE 2: VÉRIFICATIONS GÉNÉRALES ===============================
 
-# Vérifier que le fichier fourni est un fichier text
-if [ "$fichier_type" != "text/plain" ]; then
-    echo "ERREUR: Le fichier donné n'est pas un fichier text." && exit 1
+if [ $OPTIND -eq 1 ]; then
+    echo -e "${ROUGE}Usage: ./projet_final_pt1.sh -f <fichier_texte>${BLANC}" && exit 1
 fi
 
 # Vérifier que l'utilisateur a bien fourni un fichier text
-if [ -z "$file" ]; then
-    echo "Usage: ./projet_final_pt1.sh -f <fichier_authentification>" && exit 1
+if [ ! -s "$file" ]; then
+    echo -e "${ROUGE}ERREUR: Le fichier texte fourni est vide.${BLANC}" && exit 1
 fi
 
 # Vérifier si SSHpass est installé sur la machine
 if man sshpass &> /dev/null; then
-    echo "SSHpass est déjà installé." && echo ""
+    echo -e "${VERT}SSHpass est déjà installé.${BLANC}"
 else
+    echo -e "${JAUNE}Installation de SSHpass.${BLANC}"
     sudo apt -y install sshpass &> /dev/null
 fi
 
 # Vérifier si Expect est installé sur la machine
 if man expect &> /dev/null; then
-    echo "Expect est déjà installé." && echo ""
+    echo -e "${VERT}Expect est déjà installé.${BLANC}"
 else
+    echo -e "${JAUNE}Installation d'Expect.${BLANC}"
     sudo apt -y install expect &> /dev/null
 fi
 
@@ -59,10 +67,10 @@ fi
 while read -r ip_address username password ; do
     
     # Vérifier que l'adresse IP dans le fichier text fourni est véritablement une adresse IPv4
-    if [[ $ip_address =~ $ipv4_address ]] && [[ ${#ip_address} -le 15 ]]; then
-        echo "OK"
+    if [[ $ip_address =~ $ADRESSE_IPV4 ]] && [[ ${#ip_address} -le 15 ]]; then
+        echo ""
     else
-        echo "ERREUR" && exit 1
+        echo -e "${ROUGE}ERREUR: L'adresse fournie n'est pas une adresse IPv4 valide${BLANC}" && exit 1
     fi 
 
     # S'assurer qu'on peut se connecter avec l'appareil Cisco par SSH
@@ -71,16 +79,21 @@ while read -r ip_address username password ; do
 EOF
     
     if [ $? -eq 0 ]; then    
-        echo "Une connexion SSH a été bien établie avec $ip_address." && echo ""
+        echo -e "${VERT}Une connexion SSH a été bien établie avec $ip_address.${BLANC}" && echo ""
     else
-        echo "ERREUR: Votre machine n'a pas pu se connecter avec $ip_address par SSH." && exit 1
+        echo -e "${ROUGE}ERREUR: Votre machine n'a pas pu se connecter avec $ip_address par SSH.${BLANC}" && exit 1
     fi
     
+    echo -e "${JAUNE}ATTENTION: Veuillez laisser le script s'exécuter tout seul!${BLANC}"
+    
     # Éxécuter le script Expect qui va aller chercher le fichier de configuration de l'appareil Cisco
-    expect ./ExpectScript.sh "$ip_address" "$username" "$password" 
+    expect ./projet_final_pt2.sh "$ip_address" "$username" "$password" 
     
     # Renommer la copie
-    copie="${ip_address}_${temps_exact}.bak"
+    copie="${ip_address}_${TEMPS_EXACT}.bak"
     mv backup-config $copie
 
 done < $file
+
+echo -e "${VERT}Le script a fini d'exécuter avec success${BLANC}!" && echo "Now exiting..."
+exit 0
