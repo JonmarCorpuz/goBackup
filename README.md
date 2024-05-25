@@ -1,54 +1,57 @@
 # CiscoBackup.sh
 
-Ce script sert à extraire une copie du fichier de configuration d'un switch ou routeur Cisco.
+## Auteur
+
+* Jonmar Corpuz
 
 ## Description
 
-Ce script va tout d'abord se connecter à l'appareil Cisco en se basant sur un fichier texte fourni par l'utilisateur. Ce fichier texte contiendra l'adresse IP de l'appareil Cisco, ainsi que le username et son mot de passe que ce script va utiliser pour se connecter à l'appareil par SSH. 
+Ce script sert à extraire une copie du fichier de configuration d'un switch ou routeur Cisco par SSH vers la machine Ubuntu où le script a été exécuté.
 
-## Pour commencer
-
-### Prérequis
+## Prérequis
 
 * Un client Ubuntu avec SSHPass et Expect d'installés.
-* Un ou plusieurs appareil Cisco qui possède un utilisateur avec un privilège de 15 et qui a SSH et SCP de configuré.
+* Au moins un appareil Cisco avec SSH et SCP de configuré et qui possède un utilisateur avec un privilège de 15.
 
-### Installation
+## Entrées nécessaires
 
-* Comment/où télécharger votre programme
-* Toutes les modifications nécessaires à apporter aux fichiers/dossiers
+* Un fichier texte qui contiendra l'adresse IP de l'appareil Cisco, ainsi que le username et son mot de passe que ce script va utiliser pour se connecter à l'appareil par SSH.
 
-### Exécution du programme
+## Sorties produites
 
-* Comment exécuter le programme
-* Étapes à suivre
+* Un fichier texte qui contiendra une copie du fichier de configuration de l'appareil Cisco par appareil spécifiée dans le fichier texte
 
-## Aide
+## Syntax
 
-Conseils pour les problèmes ou les questions courants.
-****
+* Voici la syntax pour bien exécuter le script: 
 
-## Auteur
+```bash
+./projet_final_pt1.sh -f <fichier_texte>
+```
 
-* [Jonmar Corpuz](https://www.linkedin.com/in/jonmarcorpuz/)
+* Voici la syntax pour chaque ligne dans votre fichier de texte que vous allez fournir au script:
 
-## Historique des versions
+```text
+<adresse_ip> <username> <password>
+[adresse_ip] [username] [password]
+[...]
+```
 
-* 0.2
-    * Divers correctifs de bogues et optimisations
-    * Voir [changement de commit]() ou Voir [historique des versions]()
-* 0.1
-    * Première publication
+## Exemple
 
-## Licence
+1. Vous allez créer un fichier de texte "DEMO.txt" qui contient les lignes suivantes concernant l'adresse IP, le nom d'utilisateur et le mot de passe de l'appareil Cisco:
+```txt
+10.10.1.100 bob cisco
+10.10.1.200 alice cisco
+```
 
-Ce projet est sous licence [NOM ICI] - voir le fichier LICENSE.md pour plus de détails
+2. Vous allez exécuter le script en fournissant le fichier de texte que vous venez de créer avec la commande suivante: 
+```bash
+./projet_final_pt1.sh -f DEMO.txt
+```
 
-## Remerciements
-
-Inspiration, extraits de code, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+3. Le script va vous produire une copie du fichier de configuration de chaque appareil que vous avez spécifié avec le fichier de texte. 
+```bash
+10.10.1.100_2024-01-01:01:01:01.bak
+10.10.1.200_2024-01-01:01:02:02.bak
+```
