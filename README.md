@@ -2,7 +2,7 @@
 
 ## Auteur
 
-* Jonmar Corpuz
+* ![Jonmar Corpuz](https://www.linkedin.com/in/jonmarcorpuz/)
 
 ## Description
 
@@ -26,7 +26,7 @@ Ce script sert à extraire une copie du fichier de configuration d'un switch ou 
 * Voici la syntax pour bien exécuter le script: 
 
 ```bash
-./projet_final_pt1.sh -f <fichier_texte>
+./CiscoBackup.sh -f <fichier_texte>
 ```
 
 * Voici la syntax pour chaque ligne dans votre fichier de texte que vous allez fournir au script:
@@ -47,7 +47,7 @@ Ce script sert à extraire une copie du fichier de configuration d'un switch ou 
 
 2. Vous allez exécuter le script en fournissant le fichier de texte que vous venez de créer avec la commande suivante: 
 ```bash
-./projet_final_pt1.sh -f DEMO.txt
+./CiscoBackup.sh -f DEMO.txt
 ```
 
 3. Le script va vous produire une copie du fichier de configuration de chaque appareil que vous avez spécifié avec le fichier de texte. 
